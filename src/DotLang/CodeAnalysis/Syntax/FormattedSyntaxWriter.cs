@@ -30,7 +30,7 @@ namespace DotLang.CodeAnalysis.Syntax
                 writer ?? throw new ArgumentNullException(nameof(writer)),
                 this.settings = settings ?? new FormattedSyntaxTextWriterSettings());
 
-        public override bool VisitSyntaxNode(
+        public bool VisitSyntaxNode(
             SyntaxNode node,
             VisitKind visitKind)
         {
@@ -51,7 +51,7 @@ namespace DotLang.CodeAnalysis.Syntax
             return true;
         }
 
-        public override bool VisitSyntaxTree(
+        public bool VisitSyntaxTree(
             SyntaxTree tree,
             VisitKind visitKind)
         {
@@ -63,11 +63,11 @@ namespace DotLang.CodeAnalysis.Syntax
             return true;
         }
 
-        public override bool VisitToplevelGraphSyntax(
+        public bool VisitToplevelGraphSyntax(
             ToplevelGraphSyntax toplevelGraph,
             VisitKind visitKind)
         {
-            base.VisitToplevelGraphSyntax(toplevelGraph, visitKind);
+            //base.VisitToplevelGraphSyntax(toplevelGraph, visitKind);
 
             switch (visitKind)
             {
@@ -102,11 +102,11 @@ namespace DotLang.CodeAnalysis.Syntax
             return false;
         }
 
-        public override bool VisitSubgraphStatementSyntax(
+        public bool VisitSubgraphStatementSyntax(
             SubgraphStatementSyntax subgraphStatement,
             VisitKind visitKind)
         {
-            base.VisitSubgraphStatementSyntax(subgraphStatement, visitKind);
+            //base.VisitSubgraphStatementSyntax(subgraphStatement, visitKind);
 
             switch (visitKind)
             {
@@ -131,11 +131,11 @@ namespace DotLang.CodeAnalysis.Syntax
             return true;
         }
 
-        public override bool VisitNodeStatementSyntax(
+        public bool VisitNodeStatementSyntax(
             NodeStatementSyntax nodeStatement,
             VisitKind visitKind)
         {
-            base.VisitNodeStatementSyntax(nodeStatement, visitKind);
+            //base.VisitNodeStatementSyntax(nodeStatement, visitKind);
 
             if (visitKind == VisitKind.Leave)
             {
@@ -153,11 +153,11 @@ namespace DotLang.CodeAnalysis.Syntax
             return true;
         }
 
-        public override bool VisitNodeIdentifierSyntax(
+        public bool VisitNodeIdentifierSyntax(
             NodeIdentifierSyntax nodeIdentifier,
             VisitKind visitKind)
         {
-            base.VisitNodeIdentifierSyntax(nodeIdentifier, visitKind);
+            //base.VisitNodeIdentifierSyntax(nodeIdentifier, visitKind);
 
             if (visitKind == VisitKind.Enter)
             {
@@ -167,11 +167,11 @@ namespace DotLang.CodeAnalysis.Syntax
             return true;
         }
 
-        public override bool VisitPortSyntax(
+        public bool VisitPortSyntax(
             PortSyntax port,
             VisitKind visitKind)
         {
-            base.VisitPortSyntax(port, visitKind);
+            //base.VisitPortSyntax(port, visitKind);
 
             if (visitKind == VisitKind.Enter)
             {
@@ -184,11 +184,11 @@ namespace DotLang.CodeAnalysis.Syntax
             return true;
         }
 
-        public override bool VisitAttributeListSyntax(
+        public bool VisitAttributeListSyntax(
             AttributeListSyntax attributeList,
             VisitKind visitKind)
         {
-            base.VisitAttributeListSyntax(attributeList, visitKind);
+            //base.VisitAttributeListSyntax(attributeList, visitKind);
 
             if (attributeList.Count > 0)
             {
@@ -206,11 +206,11 @@ namespace DotLang.CodeAnalysis.Syntax
             return true;
         }
 
-        public override bool VisitAttributeSyntax(
+        public bool VisitAttributeSyntax(
             AttributeSyntax attribute,
             VisitKind visitKind)
         {
-            base.VisitAttributeSyntax(attribute, visitKind);
+            //base.VisitAttributeSyntax(attribute, visitKind);
 
             switch (visitKind)
             {
@@ -231,11 +231,11 @@ namespace DotLang.CodeAnalysis.Syntax
             return true;
         }
 
-        public override bool VisitAttributeStatementSyntax(
+        public bool VisitAttributeStatementSyntax(
             AttributeStatementSyntax attributeStatement,
             VisitKind visitKind)
         {
-            base.VisitAttributeStatementSyntax(attributeStatement, visitKind);
+            //base.VisitAttributeStatementSyntax(attributeStatement, visitKind);
 
             switch (visitKind)
             {
@@ -255,11 +255,11 @@ namespace DotLang.CodeAnalysis.Syntax
             return true;
         }
 
-        public override bool VisitNameValueStatementSyntax(
+        public bool VisitNameValueStatementSyntax(
             NameValueStatementSyntax nameValueStatement,
             VisitKind visitKind)
         {
-            base.VisitNameValueStatementSyntax(nameValueStatement, visitKind);
+            //base.VisitNameValueStatementSyntax(nameValueStatement, visitKind);
 
             switch (visitKind)
             {

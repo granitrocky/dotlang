@@ -17,7 +17,7 @@ namespace DotLang.CodeAnalysis.Syntax
         protected IReadOnlyList<(SyntaxNode Node, IReadOnlyList<SyntaxToken> Tokens)> NodeStack
             => nodeStack;
 
-        public sealed override bool VisitSyntaxNode(SyntaxNode node, VisitKind visitKind)
+        public bool VisitSyntaxNode(SyntaxNode node, VisitKind visitKind)
         {
             if (visitKind == VisitKind.Enter)
             {
@@ -42,7 +42,7 @@ namespace DotLang.CodeAnalysis.Syntax
             return true;
         }
 
-        public sealed override void VisitSyntaxToken(SyntaxToken token)
+        public void VisitSyntaxToken(SyntaxToken token)
             => ((List<SyntaxToken>)nodeStack[0].Tokens).Add(token);
 
         protected virtual bool DumpNode(SyntaxNode node, VisitKind visitKind)

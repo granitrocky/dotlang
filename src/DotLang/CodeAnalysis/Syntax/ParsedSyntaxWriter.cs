@@ -23,7 +23,7 @@ namespace DotLang.CodeAnalysis.Syntax
             => this.writer = writer
                 ?? throw new ArgumentNullException(nameof(writer));
 
-        public override void VisitSyntaxToken(SyntaxToken token)
+        public void VisitSyntaxToken(SyntaxToken token)
         {
             if (token.SourceText is string)
             {
@@ -32,7 +32,7 @@ namespace DotLang.CodeAnalysis.Syntax
             }
         }
 
-        public override bool VisitSyntaxNode(
+        public bool VisitSyntaxNode(
             SyntaxNode node,
             VisitKind visitKind)
         {

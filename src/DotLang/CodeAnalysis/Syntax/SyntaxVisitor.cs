@@ -14,92 +14,92 @@ namespace DotLang.CodeAnalysis.Syntax
         Leave
     }
 
-    public class SyntaxVisitor
+    public interface SyntaxVisitor
     {
-        public virtual bool VisitSyntaxNode(
-            SyntaxNode node,
-            VisitKind visitKind)
+        public virtual bool VisitSyntaxNode<T>(
+            T node,
+            VisitKind visitKind) where T: SyntaxNode
             => true;
 
-        public virtual void VisitSyntaxToken(SyntaxToken token)
+        public void VisitSyntaxToken(SyntaxToken token)
         {
         }
 
-        public virtual bool VisitSyntaxTree(
+        public bool VisitSyntaxTree(
             SyntaxTree tree,
             VisitKind visitKind)
             => VisitSyntaxNode(tree, visitKind);
 
-        public virtual bool VisitPreprocessorDirectiveSyntax(
+        public bool VisitPreprocessorDirectiveSyntax(
             PreprocessorDirectiveSyntax directive,
             VisitKind visitKind)
             => VisitSyntaxNode(directive, visitKind);
 
-        public virtual bool VisitNodeIdentifierSyntax(
+        public bool VisitNodeIdentifierSyntax(
             NodeIdentifierSyntax nodeIdentifier,
             VisitKind visitKind)
             => VisitSyntaxNode(nodeIdentifier, visitKind);
 
-        public virtual bool VisitPortSyntax(
+        public bool VisitPortSyntax(
             PortSyntax port,
             VisitKind visitKind)
             => VisitSyntaxNode(port, visitKind);
 
-        public virtual bool VisitAttributeSyntax(
+        public bool VisitAttributeSyntax(
             AttributeSyntax attribute,
             VisitKind visitKind)
             => VisitSyntaxNode(attribute, visitKind);
 
-        public virtual bool VisitAttributeListSyntax(
+        public bool VisitAttributeListSyntax(
             AttributeListSyntax attributeList,
             VisitKind visitKind)
             => VisitSyntaxNode(attributeList, visitKind);
 
-        public virtual bool VisitToplevelGraphSyntax(
+        public bool VisitToplevelGraphSyntax(
             ToplevelGraphSyntax toplevelGraph,VisitKind visitKind)
             => VisitSyntaxNode(toplevelGraph, visitKind);
 
-        public virtual bool VisitGraphSyntax(
+        public bool VisitGraphSyntax(
             GraphSyntax graph,
             VisitKind visitKind)
             => VisitToplevelGraphSyntax(graph, visitKind);
 
-        public virtual bool VisitDigraphSyntax(
+        public bool VisitDigraphSyntax(
             DigraphSyntax digraph,
             VisitKind visitKind)
             => VisitToplevelGraphSyntax(digraph, visitKind);
 
-        public virtual bool VisitStatementSyntax(
+        public bool VisitStatementSyntax(
             StatementSyntax statement,
             VisitKind visitKind)
             => VisitSyntaxNode(statement, visitKind);
 
-        public virtual bool VisitEmptyStatementSyntax(
+        public bool VisitEmptyStatementSyntax(
             EmptyStatementSyntax emptyStatement,
             VisitKind visitKind)
             => VisitStatementSyntax(emptyStatement, visitKind);
 
-        public virtual bool VisitNameValueStatementSyntax(
+        public bool VisitNameValueStatementSyntax(
             NameValueStatementSyntax nameValueStatement,
             VisitKind visitKind)
             => VisitStatementSyntax(nameValueStatement, visitKind);
 
-        public virtual bool VisitAttributeStatementSyntax(
+        public bool VisitAttributeStatementSyntax(
             AttributeStatementSyntax attributeStatement,
             VisitKind visitKind)
             => VisitStatementSyntax(attributeStatement, visitKind);
 
-        public virtual bool VisitNodeStatementSyntax(
+        public bool VisitNodeStatementSyntax(
             NodeStatementSyntax nodeStatement,
             VisitKind visitKind)
             => VisitStatementSyntax(nodeStatement, visitKind);
 
-        public virtual bool VisitEdgeStatementSyntax(
+        public bool VisitEdgeStatementSyntax(
             EdgeStatementSyntax edgeStatement,
             VisitKind visitKind)
             => VisitStatementSyntax(edgeStatement, visitKind);
 
-        public virtual bool VisitSubgraphStatementSyntax(
+        public bool VisitSubgraphStatementSyntax(
             SubgraphStatementSyntax subgraphStatement,
             VisitKind visitKind)
             => VisitStatementSyntax(subgraphStatement, visitKind);
